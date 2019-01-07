@@ -4,6 +4,7 @@ function Bmod = calcBfield(transMat,g)
 %as the output.  This value is later used as Bz for the purposes of fitting to
 %the harmonic functions. transMat is a vector of 3 transformation matrices, one for each
 %dimension
+%edit
 
 Bx = transMat(:,:,1)*g;
 By = transMat(:,:,2)*g;
