@@ -4,6 +4,9 @@ penalty = 0;
 x = 0;
 for i = 1:length(pos(:,1))
     
+    r = sqrt(pos(1).^2 + pos(2).^2 + pos(3).^2);
+    rho = sqrt(pos(1).^2 + pos(2).^2);
+    z = pos(3);
     
     if isequal([z>extPar.H,rho<extPar.R2],[1,1])
         x = z - extPar.H;

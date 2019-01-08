@@ -1,19 +1,19 @@
 clear
-load('OptimalSolutions.mat')
+%load('OptimalSolutions.mat')
 numTrials = 10000;
 %extPar(numTrials) = init();
-pos = OptimalSolutions.X;
-%pos = 100*rand(72,1)-50;
+%pos = OptimalSolutions.X;
+pos = 200*rand(72,1)-100;
 extPar = init();
 %pos = zeros(16,3,numTrials);
-fitness(numTrials) = calcFitnessVerbose(pos,extPar);
-%fitness(numTrials) = calcFitness(pos(:,:,numTrials),extPar(numTrials));
+%fitness(numTrials) = calcFitnessVerbose(pos,extPar);
+fitness(numTrials) = calcFitness(pos(:,:,numTrials),extPar(numTrials));
 
 for i = 1:numTrials
     
     %pos(:,:,i) = genPosRandom2(41.5,18,66.3,16);
-    fitness(i) = calcFitnessVerbose(pos,extPar);
-    %fitness(i) = calcFitness(pos(:,:,i),extPar);
+    %fitness(i) = calcFitnessVerbose(pos,extPar);
+    fitness(i) = calcFitness(pos(:,:,i),extPar);
     
      if mod(i,(numTrials/100)) == 0
         percentDone = i*100/numTrials

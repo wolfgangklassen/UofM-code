@@ -36,7 +36,7 @@ dFit = calcdFalseFifth(extPar.R,extPar.h1,extPar.h2,g_fit); %truncated order
 
 %fitness = 1e6*sqrt(sum((g(1:length(g_fit)) - g_fit).^2));
 
-fitness = 100*(abs(dReal - dFit))/abs(dReal);%goal is for this to be as
+fitness = penalty + 100*(abs(dReal - dFit))/abs(dReal);%goal is for this to be as
 %low as possible for any arbitrary g
 
 end
