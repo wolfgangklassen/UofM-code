@@ -18,4 +18,6 @@ extPar.h2 = 20.05; % units of cm
 
 extPar.R2 = 41.5; % units of cm
 
+extPar.H = 60; % units of cm
+
 end
