@@ -1,16 +1,13 @@
 function isPenalty = isPenalty(pos,extPar)
 
+r = sqrt(pos(1).^2 + pos(2).^2 + pos(3).^2);
 rho = sqrt(pos(1).^2 + pos(2).^2);
 z = pos(3);
 
 if abs(z) > extPar.H
-    isPenalty = true;
+    penalty = true;
 elseif rho > extPar.R2
-    isPenalty = true;
-elseif (abs(z)<extPar.h2)&&(rho<extPar.R)
-    isPenalty = true;
-else
-    isPenalty = false;
-end
+    penalty = true;
+elseif (abs(z)<extPar.h2)&&()
 
 end
