@@ -1,22 +1,22 @@
 clear
-g = genGrad();
-%g = genGradRandom();
+load('firstPolishedSolutions.mat')
+g = genGradRandom();
 extPar = init();
-numTrials = 10000;
-fifthOnumPoints = 60;
-fourthOnumPoints = 50;
-thirdOnumPoints = 40;
-secondOnumPoints = 30;
-firstOnumPoints = 20;
+numTrials = 1000;
+% fifthOnumPoints = 60;
+% fourthOnumPoints = 50;
+% thirdOnumPoints = 40;
+% secondOnumPoints = 30;
+% firstOnumPoints = 20;
+pos = reshape(PolishedSolutions.X,24,3);
 for i = numTrials:-1:1
     %pos = genPos();
-    pos = genPosRandom(42,66,fifthOnumPoints);
     transMatZ = calcTransMatZFifth(pos);  %this matrix should be the truncated order
     posErrors = calcPosErrors(pos,extPar.posError);
     transMatErrors5(:,:,1) = calcTransMatXFifth(posErrors);  % These should be to the highest order
     transMatErrors5(:,:,2) = calcTransMatYFifth(posErrors);
     transMatErrors5(:,:,3) = calcTransMatZFifth(posErrors);
-    Bfield = calcBfieldErrors(transMatErrors5,g,extPar.error,extPar.offset);
+    Bfield = calcBfieldErrors(transMatErrors5,g,extPar.posError,extPar.offset);
     gFifth(:,i) = calcGrad(Bfield,transMatZ);%truncated order, NO ERRORS IN TRANSMAT
 end
 gFifth_avg = mean(gFifth,2);
@@ -45,13 +45,13 @@ line([35.5,48.5],[9e-13,9e-13],'Color','g','LineWidth',2);
 title('fifth order fit with '+string(fifthOnumPoints)+' positions');
 for i = numTrials:-1:1
     %pos = genPos();
-    pos = genPosRandom(42,66,fourthOnumPoints);
+    
     transMatZ4 = calcTransMatZFourth(pos);  %this matrix should be the truncated order
     posErrors4 = calcPosErrors(pos,extPar.posError);
     transMatErrors4(:,:,1) = calcTransMatXFifth(posErrors4);  % These should be to the highest order
     transMatErrors4(:,:,2) = calcTransMatYFifth(posErrors4);
     transMatErrors4(:,:,3) = calcTransMatZFifth(posErrors4);
-    Bfield4 = calcBfieldErrors(transMatErrors4,g,extPar.error,extPar.offset);
+    Bfield4 = calcBfieldErrors(transMatErrors4,g,extPar.posError,extPar.offset);
     gFourth(:,i) = calcGrad(Bfield4,transMatZ4);%truncated order, NO ERRORS IN TRANSMAT
 end
 gFourth_avg = mean(gFourth,2);
@@ -77,13 +77,13 @@ line([24.5,35.5],[9.5e-11,9.5e-11],'Color','g','LineWidth',2);
 title('fourth order fit with '+string(fourthOnumPoints)+' positions');
 for i = numTrials:-1:1
     %pos = genPos();
-    pos = genPosRandom(42,66,thirdOnumPoints);
+    
     transMatZ3 = calcTransMatZThird(pos);  %this matrix should be the truncated order
     posErrors3 = calcPosErrors(pos,extPar.posError);
     transMatErrors3(:,:,1) = calcTransMatXFifth(posErrors3);  % These should be to the highest order
     transMatErrors3(:,:,2) = calcTransMatYFifth(posErrors3);
     transMatErrors3(:,:,3) = calcTransMatZFifth(posErrors3);
-    Bfield3 = calcBfieldErrors(transMatErrors3,g,extPar.error,extPar.offset);
+    Bfield3 = calcBfieldErrors(transMatErrors3,g,extPar.posError,extPar.offset);
     gThird(:,i) = calcGrad(Bfield3,transMatZ3);%truncated order, NO ERRORS IN TRANSMAT
 end
 gThird_avg = mean(gThird,2);
@@ -108,13 +108,13 @@ line([15.5,24.5],[6e-9,6e-9],'Color','g','LineWidth',2);
 title('third order fit with '+string(thirdOnumPoints)+' positions');
 for i = numTrials:-1:1  
     %pos = genPos();
-    pos = genPosRandom(42,66,secondOnumPoints);
+    
     transMatZ2 = calcTransMatZSecond(pos);  %this matrix should be the truncated order
     posErrors2 = calcPosErrors(pos,extPar.posError);
     transMatErrors2(:,:,1) = calcTransMatXFifth(posErrors2);  % These should be to the highest order
     transMatErrors2(:,:,2) = calcTransMatYFifth(posErrors2);
     transMatErrors2(:,:,3) = calcTransMatZFifth(posErrors2);
-    Bfield2 = calcBfieldErrors(transMatErrors2,g,extPar.error,extPar.offset);
+    Bfield2 = calcBfieldErrors(transMatErrors2,g,extPar.posError,extPar.offset);
     gSecond(:,i) = calcGrad(Bfield2,transMatZ2);%truncated order, NO ERRORS IN TRANSMAT
 end
 gSecond_avg = mean(gSecond,2);
@@ -137,13 +137,13 @@ line([8.5,15.5],[6e-7,6e-7],'Color','g','LineWidth',2);
 title('second order fit with '+string(secondOnumPoints)+' positions');
 for i = numTrials:-1:1
     %pos = genPos();
-    pos = genPosRandom(42,66,firstOnumPoints);
+    
     transMatZ1 = calcTransMatZFirst(pos);  %this matrix should be the truncated order
     posErrors1 = calcPosErrors(pos,extPar.posError);
     transMatErrors1(:,:,1) = calcTransMatXFifth(posErrors1);  % These should be to the highest order
     transMatErrors1(:,:,2) = calcTransMatYFifth(posErrors1);
     transMatErrors1(:,:,3) = calcTransMatZFifth(posErrors1);
-    Bfield1 = calcBfieldErrors(transMatErrors1,g,extPar.error,extPar.offset);
+    Bfield1 = calcBfieldErrors(transMatErrors1,g,extPar.posError,extPar.offset);
     gFirst(:,i) = calcGrad(Bfield1,transMatZ1);%truncated order, NO ERRORS IN TRANSMAT
 end
 gFirst_avg = mean(gFirst,2);

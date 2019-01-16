@@ -6,7 +6,7 @@ function fitness = calcFitnessVerbose(Xtemp,extPar)
 
 pos = reshape(Xtemp,24,3);
 
-transMatZ = calcTransMatZFifth(pos);  %this matrix should be the truncated
+transMatZ = calcTransMatZThird(pos);  %this matrix should be the truncated
 %order with no errors
 
 posErrors = calcPosErrors(pos,extPar.posError);
@@ -18,7 +18,7 @@ transMatErrors(:,:,3) = calcTransMatZFifth(posErrors); % order, with errors
 fitness.g = genGradRandom();%generate random gradient on the order of the largest 
 %expected from the measured uniformity of magnetically shielded rooms
 
-fitness.dReal = calcdFalseFifth(extPar.R,extPar.h1,extPar.h2,fitness.g); %dReal should 
+fitness.dReal = calcdFalseThird(extPar.R,extPar.h1,extPar.h2,fitness.g); %dReal should 
 %always be calculated to the highest order with no errors
 
 Bfield = calcBfieldErrors(transMatErrors,fitness.g,extPar.fieldError,extPar.offset);%...
@@ -26,7 +26,7 @@ Bfield = calcBfieldErrors(transMatErrors,fitness.g,extPar.fieldError,extPar.offs
 
 fitness.g_fit = calcGrad(Bfield,transMatZ);%truncated order, NO ERRORS IN TRANSMAT
  
-fitness.dFit = calcdFalseFifth(extPar.R,extPar.h1,extPar.h2,fitness.g_fit); %truncated order
+fitness.dFit = calcdFalseThird(extPar.R,extPar.h1,extPar.h2,fitness.g_fit); %truncated order
 
 fitness.percentError = 100*(abs(fitness.dReal - fitness.dFit))/abs(fitness.dReal);
 %fitness.percentError = 1e6*sqrt(sum((fitness.g(1:length(fitness.g_fit)) - fitness.g_fit).^2));
