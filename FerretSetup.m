@@ -27,8 +27,8 @@ par.history.NGenPerHistoryFile=25; % [integer >= 1]: How many generations per Hi
 par.general.NPop=1; % [integer >= 1]: Number of populations.
 par.general.popSize=500; % [integer >= 1]: Size of each population.
 par.general.NGen=10000; % [integer >= 1]: Maximum number of generations to run for.
-par.general.min=ones(1,24*3)*(-50); % [real vector]: Minimum values of all parameters.
-par.general.max=ones(1,24*3)*(50); % [real vector]: Maximum values of all parameters.
+par.general.min=ones(1,24*3)*(-100); % [real vector]: Minimum values of all parameters.
+par.general.max=ones(1,24*3)*(100); % [real vector]: Maximum values of all parameters.
 par.general.XLabels={}; % [Cell array of strings]: Give names to some or all parameters: {'A','B',...}
 par.general.FLabels={}; % [Cell array of Astrings]: Give names to some or all fitness values: {'FA','FB',...}
 par.general.noisy = 1;
