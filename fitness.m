@@ -5,7 +5,7 @@ function F = fitness(X,extPar)
 %case chi squared values.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-[numPar, N] = size(X);
+[~, N] = size(X);
 %numPar->number of parameters to fit in the model
 %N->number of models requested by Ferret
 for model = N:-1:1
