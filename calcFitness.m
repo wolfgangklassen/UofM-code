@@ -13,7 +13,7 @@ for i = 1:length(pos(:,1))
     end
 end
 
-transMatZ = calcTransMatZFifth(pos);  %this matrix should be the truncated
+transMatZ = calcTransMatZThird(pos);  %this matrix should be the truncated
 %order with no errors
 
 for i = 1:extPar.numAverages
@@ -35,7 +35,7 @@ for i = 1:extPar.numAverages
     
     g_fit = calcGrad(Bfield,transMatZ);%truncated order, NO ERRORS IN TRANSMAT
     
-    dFit = calcdFalseFifth(extPar.R,extPar.h1,extPar.h2,g_fit); %truncated order
+    dFit = calcdFalseThird(extPar.R,extPar.h1,extPar.h2,g_fit); %truncated order
     
     %fitness = 1e6*sqrt(sum((g(1:length(g_fit)) - g_fit).^2));
     

@@ -1,8 +1,8 @@
 clear
-load('firstPolishedSolutions.mat')
+load('goodSolutions2.mat')
 numTrials = 10000;
 %extPar(numTrials) = init();
-pos = PolishedSolutions.X;
+pos = OptimalSolutions.X;
 %pos = 100*rand(72,1)-50;
 extPar = init();
 %pos = zeros(16,3,numTrials);

@@ -18,7 +18,7 @@ transMatErrors(:,:,3) = calcTransMatZFifth(posErrors); % order, with errors
 fitness.g = genGradRandom();%generate random gradient on the order of the largest 
 %expected from the measured uniformity of magnetically shielded rooms
 
-fitness.dReal = calcdFalseThird(extPar.R,extPar.h1,extPar.h2,fitness.g); %dReal should 
+fitness.dReal = calcdFalseFifth(extPar.R,extPar.h1,extPar.h2,fitness.g); %dReal should 
 %always be calculated to the highest order with no errors
 
 Bfield = calcBfieldErrors(transMatErrors,fitness.g,extPar.fieldError,extPar.offset);%...
