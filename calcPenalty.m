@@ -11,7 +11,7 @@ for i = 1:length(pos(:,1))
     if isequal([z>extPar.H,rho<extPar.R2],[1,1])
         x = z - extPar.H;
     elseif isequal([z<extPar.H,rho>extPar.R2],[1,1])
-        x = rho - extPar.R2;;
+        x = rho - extPar.R2;
     elseif isequal([z>extPar.H,rho>extPar.R2],[1,1])
         x = r - sqrt(extPar.R2.^2 + extPar.H.^2);
     elseif isequal([z<extPar.h2,rho<extPar.R],[1,1])
@@ -22,7 +22,7 @@ for i = 1:length(pos(:,1))
         end
     end
     
-    penalty = penalty + (1+x).^4
+    penalty = penalty + (1+x).^4;
     
 end
 
