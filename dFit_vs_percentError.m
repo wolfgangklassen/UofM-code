@@ -1,6 +1,6 @@
 clear
-load('goodSolutions2.mat')
-numTrials = 10000;
+load('goodSolutions4.mat')
+numTrials = 100000;
 %extPar(numTrials) = init();
 pos = OptimalSolutions.X;
 %pos = 100*rand(72,1)-50;

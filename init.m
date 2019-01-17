@@ -8,7 +8,7 @@ extPar.fieldError = 1e-8; % units of uT
 
 extPar.posError = 0.01; % units of cm
 
-extPar.offset = 0; % units of cm
+extPar.offset = 0; % units of uT
 
 extPar.R = 18; % units of cm
 

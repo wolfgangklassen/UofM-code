@@ -4,9 +4,9 @@ function fitness = calcFitnessVerbose(Xtemp,extPar)
 %This function uses a fitness object in order to extract more information
 %than just the fitness.
 
-pos = reshape(Xtemp,24,3);
+pos = reshape(Xtemp,34,3);
 
-transMatZ = calcTransMatZThird(pos);  %this matrix should be the truncated
+transMatZ = calcTransMatZFourth(pos);  %this matrix should be the truncated
 %order with no errors
 
 posErrors = calcPosErrors(pos,extPar.posError);
@@ -26,7 +26,7 @@ Bfield = calcBfieldErrors(transMatErrors,fitness.g,extPar.fieldError,extPar.offs
 
 fitness.g_fit = calcGrad(Bfield,transMatZ);%truncated order, NO ERRORS IN TRANSMAT
  
-fitness.dFit = calcdFalseThird(extPar.R,extPar.h1,extPar.h2,fitness.g_fit); %truncated order
+fitness.dFit = calcdFalseFourth(extPar.R,extPar.h1,extPar.h2,fitness.g_fit); %truncated order
 
 fitness.percentError = 100*(abs(fitness.dReal - fitness.dFit))/abs(fitness.dReal);
 %fitness.percentError = 1e6*sqrt(sum((fitness.g(1:length(fitness.g_fit)) - fitness.g_fit).^2));

@@ -1,14 +1,14 @@
 clear
-load('firstPolishedSolutions.mat')
+load('goodSolutions3.mat')
 g = genGradRandom();
 extPar = init();
 numTrials = 1000;
-% fifthOnumPoints = 60;
-% fourthOnumPoints = 50;
-% thirdOnumPoints = 40;
-% secondOnumPoints = 30;
-% firstOnumPoints = 20;
-pos = reshape(PolishedSolutions.X,24,3);
+fifthOnumPoints = 24;
+fourthOnumPoints = 24;
+thirdOnumPoints = 24;
+secondOnumPoints = 24;
+firstOnumPoints = 24;
+pos = reshape(OptimalSolutions.X,24,3);
 for i = numTrials:-1:1
     %pos = genPos();
     transMatZ = calcTransMatZFifth(pos);  %this matrix should be the truncated order
