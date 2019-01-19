@@ -4,9 +4,9 @@ function fitness = calcFitnessVerbose(Xtemp,extPar)
 %This function uses a fitness object in order to extract more information
 %than just the fitness.
 
-pos = reshape(Xtemp,34,3);
+pos = reshape(Xtemp,24,3);
 
-transMatZ = calcTransMatZFourth(pos);  %this matrix should be the truncated
+transMatZ = calcTransMatZThird(pos);  %this matrix should be the truncated
 %order with no errors
 
 posErrors = calcPosErrors(pos,extPar.posError);

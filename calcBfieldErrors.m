@@ -12,6 +12,7 @@ By = transMat(:,:,2)*g;
 Bz = transMat(:,:,3)*g;
 
 Bmod = sqrt(Bx.^2 + By.^2 + Bz.^2);
+%Bmod = Bz;
 err = error.*randn(length(Bmod),1);
 Bmod = Bmod + err + offset;
 
