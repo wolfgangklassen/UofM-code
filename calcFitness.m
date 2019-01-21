@@ -3,7 +3,7 @@ function fitness = calcFitness(Xtemp,extPar,model)
 %well the program was able to extract the gradients with the fit function
 
 fitness = 0;
-pos = reshape(Xtemp,24,3);
+pos = reshape(Xtemp,length(Xtemp)./3,3);
 penalty = 0;
 auxOutput(model).penalty = false;
 for i = 1:length(pos(:,1))

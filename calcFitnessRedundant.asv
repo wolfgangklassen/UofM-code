@@ -1,0 +1,15 @@
+function fitness = calcFitnessRedundant(Xtemp,extPar,model)
+
+pos = reshape(Xtemp,length(Xtemp)/3,3);
+fitness = 0;
+
+for i = extPar.numAverages:-1:1
+    j = randi(length(pos));
+    pos(j,:) = [];
+    pos = reshape(pos,);
+    fitness = fitness + calcFitness(pos,extPar,model);
+end
+
+fitness = fitness./
+
+end
