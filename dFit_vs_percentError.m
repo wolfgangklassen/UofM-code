@@ -1,5 +1,5 @@
 clear
-load('goodSolutions4.mat')
+load('goodSolutions7.mat')
 numTrials = 100000;
 %extPar(numTrials) = init();
 pos = OptimalSolutions.X;

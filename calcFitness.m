@@ -9,7 +9,7 @@ auxOutput(model).penalty = false;
 for i = 1:length(pos(:,1))
     if isPenalty(pos(i,:),extPar) % checks if each position is penalizable
         penalty = penalty + calcPenalty(pos(i,:),extPar);
-        auxOutput(model).penalty = true; % sets penalized flag to true if one position is penalized
+        auxOutput(model).penalty = true; % sets penalized flag to true if even one position is penalized
     end
 end
 
@@ -20,18 +20,15 @@ for i = 1:extPar.numAverages
     
     posErrors = calcPosErrors(pos,extPar.posError);
     
-    transMatErrors(:,:,1) = calcTransMatXFifth(posErrors); % These should be
-    transMatErrors(:,:,2) = calcTransMatYFifth(posErrors); % to the highest
-    transMatErrors(:,:,3) = calcTransMatZFifth(posErrors); % order, with errors
-    
     g = genGradRandom();%generate random gradient on the order of the largest
     %expected from the measured uniformity of magnetically shielded rooms
     
     dReal = calcdFalseFifth(extPar.R,extPar.h1,extPar.h2,g); %dReal should
     %always be calculated to the highest order with no errors
     
-    Bfield = calcBfieldErrors(transMatErrors,g,extPar.fieldError,extPar.offset);%...
-    %highest order, plus errors
+    for j = length(posErrors):-1:1
+        Bfield(j,1) = calcBavg(extPar,posErrors(j,:),g) + randn.*extPar.fieldError + extPar.offset;
+    end
     
     g_fit = calcGrad(Bfield,transMatZ);%truncated order, NO ERRORS IN TRANSMAT
     

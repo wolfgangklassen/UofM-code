@@ -22,4 +22,19 @@ extPar.H = 60; % units of cm
 
 extPar.numAverages = 100;
 
+extPar.cell.radius = 1; % cm
+
+extPar.cell.height = 1; % cm
+
+extPar.cell.numPosRadius = 12;
+
+extPar.cell.numPosHeight = 12;
+
+extPar.EDMcell.radius = 1; % cm
+
+extPar.EDMcell.height = 1; % cm
+
+extPar.EDMcell.numPosRadius = 100;
+
+extPar.EDMcell.numPosHeight = 100;
 end
