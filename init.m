@@ -4,11 +4,11 @@ function extPar = init()
 %the beginning of the run, and the extPar structure is passed through to
 %everything that needs it.
 
-extPar.fieldError = 1e-8; % units of uT
+extPar.fieldError = 1e-6; % units of uT
 
-extPar.posError = 0.01; % units of cm
+extPar.posError = 1; % units of cm
 
-extPar.offset = 0; % units of uT
+extPar.offset = 1e-4; % units of uT
 
 extPar.R = 18; % units of cm
 
@@ -26,9 +26,9 @@ extPar.cell.radius = 1; % cm
 
 extPar.cell.height = 1; % cm
 
-extPar.cell.numPosRadius = 12;
+extPar.cell.numPosRadius = 9;
 
-extPar.cell.numPosHeight = 12;
+extPar.cell.numPosHeight = 9;
 
 extPar.EDMcell.radius = 1; % cm
 

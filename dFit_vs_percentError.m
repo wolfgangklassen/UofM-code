@@ -1,6 +1,6 @@
 clear
 load('goodSolutions7.mat')
-numTrials = 100000;
+numTrials = 10000;
 %extPar(numTrials) = init();
 pos = OptimalSolutions.X;
 %pos = 100*rand(72,1)-50;
