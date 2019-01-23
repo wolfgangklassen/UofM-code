@@ -5,7 +5,7 @@ function plotGoodPos(goodPos)
 numFrames = 90;
 for frameNumber = 1:numFrames
     
-    pos = reshape(goodPos,24,3);
+    pos = reshape(goodPos,length(goodPos)./3,3);
     %plots the positions of the magnetometers inside a cube
     %generates a cube to define the outer edges of the figure
     fig = figure;
