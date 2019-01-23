@@ -1,6 +1,6 @@
 clear
 load('goodSolutions7.mat')
-numTrials = 10000;
+numTrials = 100000;
 %extPar(numTrials) = init();
 pos = OptimalSolutions.X;
 %pos = 100*rand(72,1)-50;
@@ -15,7 +15,7 @@ for i = 1:numTrials
     fitness(i) = calcFitnessVerbose(pos,extPar);
     %fitness(i) = calcFitness(pos(:,:,i),extPar);
     
-     if mod(i,(numTrials/100)) == 0
+    if mod(i,(numTrials/100)) == 0
         percentDone = i*100/numTrials
     end
     
@@ -47,15 +47,15 @@ ind1 = 1;
 ind2 = 1;
 falseNeg = [];
 falsePos = [];
-for i = 1:numTrials    
-    if (dFit(i) < 10^(-0.1)*(dReal(i)))&&(dReal(i)>1e-27)        
+for i = 1:numTrials
+    if (dFit(i) < 10^(-0.1)*(dReal(i)))&&(dReal(i)>1e-27)
         falseNeg(ind1) = dReal(i);
-        ind1 = ind1 + 1;        
-    end    
-    if (dFit(i) > 10^(0.1)*(dReal(i)))&&(dFit(i)>1e-27)        
+        ind1 = ind1 + 1;
+    end
+    if (dFit(i) > 10^(0.1)*(dReal(i)))&&(dFit(i)>1e-27)
         falsePos(ind2) = dFit(i);
-        ind2 = ind2 + 1;        
-    end    
+        ind2 = ind2 + 1;
+    end
 end
 
 text(1e-27,3e-28,0,sprintf('total fits: %i',numTrials))
@@ -70,3 +70,10 @@ set(gca,'yScale','log');
 axis([1e-30 1e-25 1e-5 1e8 0 max(max(density2))]);
 xlabel('dFalse generated')
 ylabel('percent error in fit')
+
+figure(3)
+[~,edges] = histcounts(log10(percentError));
+histogram(percentError,10.^edges)
+set(gca, 'xscale','log')
+xlabel('percent error');
+ylabel('counts');

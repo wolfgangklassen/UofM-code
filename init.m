@@ -4,9 +4,9 @@ function extPar = init()
 %the beginning of the run, and the extPar structure is passed through to
 %everything that needs it.
 
-extPar.fieldError = 1e-6; % units of uT
+extPar.fieldError = 1e-8; % units of uT
 
-extPar.posError = 1; % units of cm
+extPar.posError = 0.1; % units of cm
 
 extPar.offset = 1e-4; % units of uT
 
