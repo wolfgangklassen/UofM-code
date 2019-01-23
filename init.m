@@ -26,9 +26,9 @@ extPar.cell.radius = 1; % cm
 
 extPar.cell.height = 1; % cm
 
-extPar.cell.numPosRadius = 9;
+extPar.cell.numPosRadius = 5;
 
-extPar.cell.numPosHeight = 9;
+extPar.cell.numPosHeight = 5;
 
 extPar.EDMcell.radius = 1; % cm
 
