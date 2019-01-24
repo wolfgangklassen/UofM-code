@@ -5,7 +5,7 @@ function fitness = calcFitnessVerbose(Xtemp,extPar)
 %than just the fitness.
 
 pos = reshape(Xtemp,length(Xtemp)./3,3);
-
+pos(1:5,:) = [];
 transMatZ = calcTransMatZThird(pos);  %this matrix should be the truncated
 %order with no errors
 
