@@ -9,16 +9,9 @@ for frameNumber = 1:numFrames
     %plots the positions of the magnetometers inside a cube
     %generates a cube to define the outer edges of the figure
     fig = figure;
-    %generate a cylinder the size of the vacuum chamber
-    r = 41.4988; n = 20;
-    H = 66.30;
-    R1 = 18; R2 = 41.5;
-    [X,Y,Z] = cylinder(r,n);
-    Z(1,:) = -H/2;
-    Z(2,:) = H/2;
-    surf(X,Y,Z,'FaceAlpha',0);
-    hold on;
+
     plotcube([100 100 100],[-50 -50 -50],0);
+    hold on;
     %generate 2 cylinders to represent the regions of interest
     r = 18; n = 40;
     [X,Y,Z] = cylinder(r,n);
@@ -48,7 +41,7 @@ for frameNumber = 1:numFrames
     % density = reshape(density,dim(2)-2,dim(1)-2);
     % density = interp2(density);
     % surf(density);
-    filename = 'temp.gif';
+    filename = 'symmetriclayout2.gif';
     scatter3(pos(:,1),pos(:,2),pos(:,3),15,'black','s','filled')
     camzoom(1);
     view([frameNumber*4 (15+10*sin(4*pi*(frameNumber/numFrames)))]);

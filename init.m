@@ -8,7 +8,7 @@ extPar.fieldError = 1e-8; % units of uT
 
 extPar.posError = 0.1; % units of cm
 
-extPar.offset = 1e-4; % units of uT
+extPar.offset = 1e-6; % units of uT
 
 extPar.R = 18; % units of cm
 
@@ -26,9 +26,9 @@ extPar.cell.radius = 1; % cm
 
 extPar.cell.height = 1; % cm
 
-extPar.cell.numPosRadius = 5;
+extPar.cell.numPosRadius = 10;
 
-extPar.cell.numPosHeight = 5;
+extPar.cell.numPosHeight = 10;
 
 extPar.EDMcell.radius = 1; % cm
 
