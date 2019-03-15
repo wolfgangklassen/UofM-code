@@ -1,9 +1,9 @@
 clear
-load('symmetriclayout2')
+load('goodSolutions24')
 numTrials = 10000;
 %extPar(numTrials) = init();
-%pos = OptimalSolutions.X;
-%pos = 100*rand(72,1)-50;
+pos = OptimalSolutions.X;
+%pos = 100*rand(60,1)-50;
 extPar = init();
 %pos = zeros(16,3,numTrials);
 fitness(numTrials) = calcFitnessVerbose(pos,extPar);
@@ -53,11 +53,11 @@ ind2 = 1;
 falseNeg = [];
 falsePos = [];
 for i = numTrials:-1:1
-    if ((dReal(i)-dFit(i))>1e-28)&&(abs(dReal(i))>abs(dFit(i)))
+    if (abs(dReal(i)-dFit(i))>1e-28)&&(abs(dReal(i))>abs(dFit(i)))
         falseNeg(ind1) = dReal(i);
         ind1 = ind1 + 1;
     end
-    if ((dReal(i)-dFit(i))>1e-28)&&(abs(dReal(i))<abs(dFit(i)))
+    if (abs(dReal(i)-dFit(i))>1e-28)&&(abs(dReal(i))<abs(dFit(i)))
         falsePos(ind2) = dFit(i);
         ind2 = ind2 + 1;
     end
@@ -81,5 +81,5 @@ figure(3)
 [~,edges] = histcounts(log10(absError));
 histogram(absError,10.^edges)
 set(gca, 'xscale','log')
-xlabel('absolute error');
+xlabel('absolute error (e*cm)');
 ylabel('counts');
