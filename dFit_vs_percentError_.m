@@ -1,5 +1,5 @@
 clear
-load('goodSolutions24')
+load('goodSolutions26')
 numTrials = 10000;
 %extPar(numTrials) = init();
 pos = OptimalSolutions.X;
@@ -38,9 +38,9 @@ ylabel('dFalse fitted')
 axis([1e-30 1e-25 1e-30 1e-25 0 max(max(density))]);
 hold on
 x1 = logspace(-31,-24,1000);
-y1 = x1 + 1e-28;
+y1 = x1 + 5e-28;
 x2 = logspace(-31,-24,1000);
-y2 = x2 - 1e-28;
+y2 = x2 - 5e-28;
 plot3(x1,y1,zeros(1,numel(x1)),'LineWidth',2)
 plot3(x2,y2,zeros(1,numel(x1)),'LineWidth',2)
 % patch([1e-30 1e-30 1e-25 1e-25],...
@@ -53,11 +53,11 @@ ind2 = 1;
 falseNeg = [];
 falsePos = [];
 for i = numTrials:-1:1
-    if (abs(dReal(i)-dFit(i))>1e-28)&&(abs(dReal(i))>abs(dFit(i)))
+    if (abs(dReal(i)-dFit(i))>5e-28)&&(abs(dReal(i))>abs(dFit(i)))
         falseNeg(ind1) = dReal(i);
         ind1 = ind1 + 1;
     end
-    if (abs(dReal(i)-dFit(i))>1e-28)&&(abs(dReal(i))<abs(dFit(i)))
+    if (abs(dReal(i)-dFit(i))>5e-28)&&(abs(dReal(i))<abs(dFit(i)))
         falsePos(ind2) = dFit(i);
         ind2 = ind2 + 1;
     end

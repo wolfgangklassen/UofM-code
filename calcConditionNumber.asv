@@ -1,0 +1,7 @@
+function CN = calcConditionNumber(input)
+
+pos = reshape(input,input./3,3);
+M = calcTransMatZThird(pos);
+CN = cond(M)
+
+end

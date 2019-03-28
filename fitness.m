@@ -12,7 +12,8 @@ for model = N:-1:1
     %select a single column of parameters to check
     Xtemp = X(:,model);
     %check parameters
-    F(model) = calcFitnessRedundant(Xtemp,extPar,model);
+    F(1,model) = calcFitness(Xtemp,extPar,model);
+    F(2,model) = calcConditionNumber(Xtemp,extPar);
 end
 
 end
