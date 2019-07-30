@@ -8,7 +8,7 @@ x = pos(:,1);
 y = pos(:,2);
 z = pos(:,3);
 
-transMat = zeros(length(pos),48);
+transMat = zeros(length(pos),8);
 transMat(:,1) = 1;
 transMat(:,2) = 0;
 transMat(:,3) = 0;

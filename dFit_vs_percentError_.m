@@ -1,8 +1,8 @@
 clear
-load('goodSolutions26')
+load('goodSolutions27')
 numTrials = 10000;
 %extPar(numTrials) = init();
-pos = OptimalSolutions.X;
+pos = OptimalSolutions.X(:,383);
 %pos = 100*rand(60,1)-50;
 extPar = init();
 %pos = zeros(16,3,numTrials);

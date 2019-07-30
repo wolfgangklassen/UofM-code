@@ -41,7 +41,7 @@ for frameNumber = 1:numFrames
     % density = reshape(density,dim(2)-2,dim(1)-2);
     % density = interp2(density);
     % surf(density);
-    filename = 'goodSolutions24.gif';
+    filename = 'goodSolutions27.gif';
     scatter3(pos(:,1),pos(:,2),pos(:,3),15,'black','s','filled')
     camzoom(1);
     view([frameNumber*4 (15+10*sin(4*pi*(frameNumber/numFrames)))]);
