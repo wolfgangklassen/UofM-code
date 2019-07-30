@@ -7,7 +7,7 @@ if abs(z) > extPar.H
     isPenalty = true;
 elseif rho > extPar.R2
     isPenalty = true;
-elseif (abs(z)<extPar.h2)&&(rho<extPar.R)
+elseif (abs(z)<30)&&(rho<50)%Magic numbers here for Ruediger
     isPenalty = true;
 else
     isPenalty = false;

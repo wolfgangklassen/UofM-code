@@ -27,11 +27,12 @@ par.history.NGenPerHistoryFile=25; % [integer >= 1]: How many generations per Hi
 par.general.NPop=1; % [integer >= 1]: Number of populations.
 par.general.popSize=500; % [integer >= 1]: Size of each population.
 par.general.NGen=10000; % [integer >= 1]: Maximum number of generations to run for.
-par.general.min=ones(1,34*3)*(-100); % [real vector]: Minimum values of all parameters.
-par.general.max=ones(1,34*3)*(100); % [real vector]: Maximum values of all parameters.
+par.general.min=ones(1,20*3)*(-100); % [real vector]: Minimum values of all parameters.
+par.general.max=ones(1,20*3)*(100); % [real vector]: Maximum values of all parameters.
 par.general.XLabels={}; % [Cell array of strings]: Give names to some or all parameters: {'A','B',...}
 par.general.FLabels={}; % [Cell array of Astrings]: Give names to some or all fitness values: {'FA','FB',...}
 par.general.noisy = 1;
+par.parallel.timeout = 5000;
 %
 % ====================================
 % Competition
@@ -49,6 +50,11 @@ par.mutation.scale=0.25; % [0 - 1]: Min & max scale of mutation.
 par.XOver.PXOver=1;  % [0 - 1]: Probability of X-Type crossovers.
 % par.XOver.strength=0.5; % [0 - 1]: Scale of crossover.
 %
+par.link.PLink=0;
+par.link.FAbsTol=0;
+par.link.FRelTol=0;
+par.link.FRankTol=0;
+par.link.PRandomizeNewBBs=0;
 % ====================================
 % Building Block Crossover
 % par.XOverBB.PXOver=1; % [0 - 1]: Probability of Building Block crossovers.

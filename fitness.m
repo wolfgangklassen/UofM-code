@@ -13,7 +13,6 @@ for model = N:-1:1
     Xtemp = X(:,model);
     %check parameters
     F(1,model) = calcFitness(Xtemp,extPar,model);
-    F(2,model) = calcConditionNumber(Xtemp,extPar);
 end
 
 end
