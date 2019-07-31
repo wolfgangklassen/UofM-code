@@ -16,19 +16,19 @@ extPar.h1 = 5; % units of cm
 
 extPar.h2 = 20.05; % units of cm
 
-extPar.R2 = 41.5; % units of cm
+extPar.R2 = 60; % units of cm
 
 extPar.H = 60; % units of cm
 
-extPar.numAverages = 1;
+extPar.numAverages = 20;
 
 extPar.cell.radius = 1; % cm
 
 extPar.cell.height = 1; % cm
 
-extPar.cell.numPosRadius = 5;
+extPar.cell.numPosRadius = 3;
 
-extPar.cell.numPosHeight = 5;
+extPar.cell.numPosHeight = 3;
 
 extPar.EDMcell.radius = 1; % cm
 
@@ -38,5 +38,5 @@ extPar.EDMcell.numPosRadius = 100;
 
 extPar.EDMcell.numPosHeight = 100;
 
-extPar.numTrials = 25;
+extPar.numTrials = 20;
 end

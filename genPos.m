@@ -7,24 +7,39 @@ function pos = genPos()
 pos = zeros(20,3);
 r = 25;
 delta = pi/5;
+phi = pi/50;
+zdelta = 1;
+rdelta = 2;
 angle = 0;
+z = 30;
 
 for i = 1:10
-    angle = angle + delta;
     pos(i,1) = r*cos(angle);
     pos(i,2) = r*sin(angle);
-    pos(i,3) = 30;
+    pos(i,3) = z;
+    angle = angle + delta;
+    z = z + zdelta;
+    delta = delta + phi;
+    r = r + rdelta;
 end
 
-r = 25;
+r = 30;
 
-angle = pi/10;
+angle = pi/19;
+delta = pi/6;
+phi = pi/40;
+zdelta = 1.5;
+rdelta = 2.5;
+z = -35;
 
 for i = 1:10
-    angle = angle + delta;
     pos(i+10,1) = r*cos(angle);
     pos(i+10,2) = r*sin(angle);
-    pos(i+10,3) = -30;
+    pos(i+10,3) = z;
+    z = z - zdelta;
+    angle = angle - delta;
+    delta = delta + phi;
+    r = r + rdelta;
 end
 
 pos = reshape(pos,numel(pos),1)
